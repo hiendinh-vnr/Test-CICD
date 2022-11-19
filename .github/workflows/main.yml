@@ -1,0 +1,21 @@
+name: Test CI/CD
+on: 
+ push:
+  branches: [master,develop]
+ pull_request:
+    branches: [master,develop]
+jobs:
+  Test-CICD:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+  
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Build solution
+      run: msbuild WebApplication1.sln -t:rebuild -property:Configuration=Release
