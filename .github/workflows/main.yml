@@ -16,6 +16,9 @@ jobs:
   
     - name: setup-msbuild
       uses: microsoft/setup-msbuild@v1.1
+      
+    - name: Restore Packages
+      run: nuget restore WebApplication1.sln
 
     - name: Build solution
       run: msbuild WebApplication1.sln -t:rebuild -property:Configuration=Release
