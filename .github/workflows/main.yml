@@ -25,3 +25,7 @@ jobs:
 
     - name: Build solution
       run: msbuild WebApplication1/WebApplication1.sln -t:rebuild -property:Configuration=Release
+
+    - name: Reasele Source Code
+      uses: marvinpinto/action-automatic-releases@v1.2.1
+  
